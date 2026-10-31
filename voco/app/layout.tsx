@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "movo",
-  description: "Type and speak with small head movements.",
+  title: "Voco",
+  description:
+    "Hands-free AAC keyboard. Type and speak with small head movements, in your own voice.",
   icons: { icon: "/icon.png", apple: "/icon.png" },
 };
 

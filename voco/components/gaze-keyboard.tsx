@@ -156,7 +156,7 @@ const VOICE_SLOTS = 9;
 const VOICE_PREFIX = "voice-";
 const SENSITIVITY_PREFIX = "sensitivity-";
 const SENSITIVITIES = [0.5, 0.75, 1, 1.25, 1.5];
-const SENSITIVITY_STORAGE = "movo-sensitivity";
+const SENSITIVITY_STORAGE = "voco-sensitivity";
 const CONTROL_KEYS = [
   CLEAR_KEY,
   SPEAK_KEY,
@@ -1590,23 +1590,23 @@ function IntroScreen({ leaving }: { leaving: boolean }) {
       style={{
         opacity: leaving ? 0 : 1,
         transitionDuration: `${INTRO_FADE_MS}ms`,
-        animation: "movo-fade-in 700ms ease-out",
+        animation: "voco-fade-in 700ms ease-out",
       }}
     >
-      {/* Served as-is (unoptimized) so replacing public/movo_logo.png shows up
+      {/* Served as-is (unoptimized) so replacing public/voco_logo.png shows up
           right away instead of after the optimizer's 4-hour cache. Keep
           width/height in step with the file's pixel size. */}
       <Image
-        src="/movo_logo.png"
-        alt="movo"
-        width={963}
-        height={259}
+        src="/voco_logo.png"
+        alt="Voco"
+        width={1228}
+        height={265}
         unoptimized
         priority
         className="h-auto w-[min(26rem,70vw)]"
       />
       <p className="max-w-xl text-lg leading-8 text-[#3d4556] sm:text-xl sm:leading-9">
-        movo lets you type and speak with small head movements. Point with
+        Voco lets you type and speak with small head movements. Point with
         your nose, hold on a key to press it, and wink your left eye to pause.
       </p>
       <p className="text-sm tracking-[0.25em] text-[#8a7f68] uppercase">
@@ -2037,7 +2037,7 @@ function TutorialModal({ closeButton }: { closeButton: ReactNode }) {
     <div className="fixed inset-0 z-40 flex items-center justify-center bg-[#0b1220]/35 p-4 backdrop-blur-[2px]">
       <div
         role="dialog"
-        aria-label="How to use movo"
+        aria-label="How to use Voco"
         className="flex max-h-full w-full max-w-3xl flex-col gap-6 overflow-y-auto rounded-3xl border border-[#0b1220]/10 bg-[#fffdf8] p-6 shadow-2xl sm:p-8"
       >
         <div className="flex items-start justify-between gap-4">
@@ -2046,7 +2046,7 @@ function TutorialModal({ closeButton }: { closeButton: ReactNode }) {
               Quick tour
             </p>
             <h1 className="mt-1 text-4xl font-semibold tracking-tight">
-              How to use movo
+              How to use Voco
             </h1>
             <p className="mt-1 text-[#5b6577]">
               Point at ✕ and hold to close.

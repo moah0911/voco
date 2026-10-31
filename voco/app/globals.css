@@ -32,7 +32,7 @@ body {
   pointer-events: none;
 }
 
-@keyframes movo-fade-in {
+@keyframes voco-fade-in {
   from {
     opacity: 0;
   }

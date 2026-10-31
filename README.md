@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="movo/public/movo_logo.png" alt="movo" width="360" />
+  <img src="voco/public/voco_logo.png" alt="Voco" width="360" />
 </p>
 
 <p align="center">
@@ -23,11 +23,11 @@
   <img src="screenshots/keyboard_page.png" alt="Keyboard" width="49%" />
 </p>
 
-## Why movo
+## Why Voco
 
 People who can't speak or use their hands, for example after a stroke, or living with ALS, cerebral palsy or a spinal cord injury, often rely on **AAC** (augmentative and alternative communication) systems to talk. Many of these systems are expensive, need dedicated hardware, and speak in the same flat, generic voice for everyone.
 
-**movo** is a more personal AAC system. You point with your nose, hold on a key to press it, and wink to control the app, with no hands, no special hardware and no clicking. What you type is read aloud in a voice you choose, including a clone of your own voice or a loved one's. The keyboard learns the words that matter to you, and adjusts to how much you're able to move.
+**Voco** is a more personal AAC system. You point with your nose, hold on a key to press it, and wink to control the app, with no hands, no special hardware and no clicking. What you type is read aloud in a voice you choose, including a clone of your own voice or a loved one's. The keyboard learns the words that matter to you, and adjusts to how much you're able to move.
 
 ## Features
 
@@ -59,7 +59,7 @@ Pause with a left wink, then point at **Settings**. Patient options are point-an
 | **Vocabularies** | Add personal words | View, add, respell and delete personal words |
 | **Others** | Pointer sensitivity (0.5× to 1.5×), recalibrate | Switch to eye tracking* |
 
-<sub>\* Eye tracking mode is a placeholder for future work and isn't fully implemented yet. It's there so movo can later support people who use a dedicated hardware eye tracker, for whom eye tracking may work better than head movement.</sub>
+<sub>\* Eye tracking mode is a placeholder for future work and isn't fully implemented yet. It's there so Voco can later support people who use a dedicated hardware eye tracker, for whom eye tracking may work better than head movement.</sub>
 
 Settings and personal words are saved in the browser, so they're still there next time.
 
@@ -77,7 +77,7 @@ A full QWERTY keyboard packs 26+ small keys across the screen. Webcam head track
 ### AAC voices sound flat and impersonal
 AAC users often say their system reads their words plainly, with no emotion, in a voice that isn't theirs.
 
-**Our solution:** **swappable, cloneable voices.** A caretaker uploads a short recording, of the user's own voice from before they lost speech or of a family member, and movo clones it with ElevenLabs. Everything typed is then read aloud in that voice, with natural expression.
+**Our solution:** **swappable, cloneable voices.** A caretaker uploads a short recording, of the user's own voice from before they lost speech or of a family member, and Voco clones it with ElevenLabs. Everything typed is then read aloud in that voice, with natural expression.
 
 ### The words that matter most are often the ones no dictionary has
 Names of loved ones, pets, places and in-jokes usually aren't in any word list. Typing them letter by letter every time is slow and frustrating, especially for words someone uses every day.
@@ -100,15 +100,15 @@ Some people prefer a calm, precise pointer. Others can only turn their head a li
 
 **Head pointer**
 - MediaPipe finds 478 face landmarks in every webcam frame, on the GPU, falling back to the CPU if needed.
-- movo estimates head turn and tilt from the nose tip's position relative to the outer eye corners, measured relative to the distance between the eyes. That keeps it stable when you lean in or move sideways.
+- Voco estimates head turn and tilt from the nose tip's position relative to the outer eye corners, measured relative to the distance between the eyes. That keeps it stable when you lean in or move sideways.
 - A short calibration (5 keys) fits a per-user mapping from head pose to screen position. A One Euro filter smooths the pointer while you're still and keeps it responsive when you move.
 
 **Winks**
-- Each frame, movo measures how open each eye is (eye aspect ratio) and compares the two eyes with each other.
+- Each frame, Voco measures how open each eye is (eye aspect ratio) and compares the two eyes with each other.
 - Per-user thresholds come from the wink calibration. Without calibration, a 30% difference counts.
 
 **Speech**
-- Text is sent to a small Next.js API route (`movo/app/api/voice`), which calls ElevenLabs with the selected voice and streams back the audio.
+- Text is sent to a small Next.js API route (`voco/app/api/voice`), which calls ElevenLabs with the selected voice and streams back the audio.
 - Voice uploads go through the same route to ElevenLabs' voice cloning.
 
 **Word bank**
@@ -125,11 +125,11 @@ Some people prefer a calm, precise pointer. Others can only turn their head a li
 **Requirements:** Node.js 20+, a webcam, a recent Chrome or Edge, and an [ElevenLabs API key](https://elevenlabs.io) for speech.
 
 ```bash
-cd movo
+cd voco
 npm install
 ```
 
-Create `movo/.env` with your key:
+Create `voco/.env` with your key:
 
 ```bash
 ELEVENLABS_API_KEY=your_key_here
@@ -152,7 +152,7 @@ Open http://localhost:3000 and allow camera access.
 ## Project structure
 
 ```
-movo/
+voco/
 ├── app/
 │   ├── page.tsx              # Entry point
 │   └── api/voice/route.ts    # ElevenLabs speech + voice cloning
@@ -175,16 +175,16 @@ movo/
 
 - **Desktop only:** built and tested on laptops and desktops with Chrome. Mobile isn't supported yet.
 - **English only:** the word bank is English.
-- **Stays inside movo:** you can't type into other apps or websites yet. A browser extension or desktop app would let movo type anywhere.
+- **Stays inside Voco:** you can't type into other apps or websites yet. A browser extension or desktop app would let Voco type anywhere.
 
 ## Credits and licences
 
 - [MediaPipe](https://developers.google.com/mediapipe) (Apache 2.0) for face landmark tracking.
 - [ElevenLabs](https://elevenlabs.io) for speech and voice cloning.
 - Full word bank from [dwyl/english-words](https://github.com/dwyl/english-words) (Unlicense).
-- Common-word list derived from the Google Web Trillion Word Corpus. It's licensed for research and educational use; see `movo/public/t9/LICENSE.md`.
-- [WebGazer.js](https://webgazer.cs.brown.edu) (GPLv3 / LGPLv3) for the placeholder eye-tracking mode; see `movo/public/webgazer/LICENSE.md`.
+- Common-word list derived from the Google Web Trillion Word Corpus. It's licensed for research and educational use; see `voco/public/t9/LICENSE.md`.
+- [WebGazer.js](https://webgazer.cs.brown.edu) (GPLv3 / LGPLv3) for the placeholder eye-tracking mode; see `voco/public/webgazer/LICENSE.md`.
 
 ## Team
 
-movo is built by **Shrenik Patel**, **Yifei Peng** and **Jiahui Zhu**.
+Voco is built by **Shrenik Patel**, **Yifei Peng** and **Jiahui Zhu**.
