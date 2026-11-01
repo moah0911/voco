@@ -8,7 +8,6 @@
 </p>
 
 <p align="center">
-  <a href="https://youtu.be/5lKByWE6OfI">▶ Watch the demo</a> ·
   <a href="#run-it-locally">Run it locally</a>
 </p>
 
